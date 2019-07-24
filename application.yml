@@ -6,7 +6,7 @@ spring:
     password: 151001lhaijj13  
     url: jdbc:mysql://localhost:3306/micro_service_db?useSSL=false&useUnicode=true
   application:
-    name: qianfeng-microservice-company呵呵
+    name: qianfeng-microservice-company呵呵ssss
   security:
     user:
       name: qianfeng
