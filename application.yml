@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   #数据库连接池
+    driver-class-name: com.mysql.jdbc.Driver   
+    username: root   
+    password: 151001lhaijj13  
+    url: jdbc:mysql://localhost:3306/micro_service_db?useSSL=false&useUnicode=true
+  application:
+    name: qianfeng-microservice-company呵呵
+  security:
+    user:
+      name: qianfeng
+      password: java
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true 
+  mapper-locations: classpath:mybatis/mapper/**/*.xml  #mybatis 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001:7001/eureka #eureka注册中心的地址加几个字
+  instance:
+    prefer-ip-address: true #在eureka的列表中的访问是直接的ip地址
