@@ -6,7 +6,7 @@ spring:
     password: 151001lhaijj13  
     url: jdbc:mysql://localhost:3306/micro_service_db?useSSL=false&useUnicode=true
   application:
-    name: qianfeng-microservice-company呵呵ssss
+    name: qianfeng-microservice-companyfnbfiuwehufwehi福德的维护费的好歌位于分割为与规范约为呵呵ssss
   security:
     user:
       name: qianfeng
