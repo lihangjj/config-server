@@ -1,24 +1,57 @@
-
-spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource   #数据库连接池
-    driver-class-name: com.mysql.jdbc.Driver   
-    username: root   
-    password: 151001lhaijj13  
-    url: jdbc:mysql://localhost:3306/micro_service_db?useSSL=false&useUnicode=true
-  application:
-    name: cloud-user-service
-  security:
-    user:
-      name: qianfeng
-      password: java
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true 
-  mapper-locations: classpath:mybatis/mapper/**/*.xml  #mybatis 
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-7001:7001/eureka #eureka注册中心的地址加几个字
-  instance:
-    prefer-ip-address: true #在eureka的列表中的访问是直接的ip地址
+      defaultZone: http://eureka-7001:7001/eureka #注册中心的地址，注意最后有一个/eureka
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    password: root
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  messages:
+    basename: i18n.msg,i18n.validate
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: Asia/Shanghai
+  application:
+    name: cloud-user-service
+  zipkin:
+    base-url: http://localhost:9411/  # 链路追踪的服务器地址
+  sleuth:
+    sampler:
+      probability: 1  #(范围是0-1) 指的是收集数据的比例  采集数据的比例（0-1）
+mybatis:
+  mapper-locations: classpath*:mybatis/mapper/**/*.xml    #
+  configuration:
+    map-underscore-to-camel-case: true  #
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #
+
+
+---
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:mysql://120.25.223.121/tcmm_db?serverTimezone=Asia/Shanghai
+
+---
+server:
+  port: 8002
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://120.25.223.121/tcmm_db_test?serverTimezone=Asia/Shanghai
+logging:
+  level:
+    com.qianfeng.cqjava.dao: debug
+---
+server:
+  port: 8003
+spring:
+  profiles: dev2
+  datasource:
+    url: jdbc:mysql://120.25.223.121/tcmm_db_test?serverTimezone=Asia/Shanghai
+logging:
+  level:
+    com.qianfeng.cqjava.dao: debug
