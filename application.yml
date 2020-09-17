@@ -7,7 +7,7 @@ spring:
     password: 151001lhaijj13  
     url: jdbc:mysql://localhost:3306/micro_service_db?useSSL=false&useUnicode=true
   application:
-    name: qianfeng-java-cq-2002-123456
+    name: qianfeng-java-cq-2002-123456789
   security:
     user:
       name: qianfeng
