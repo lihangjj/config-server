@@ -16,7 +16,7 @@ spring:
     date-format: yyyy-MM-dd HH:mm
     time-zone: Asia/Shanghai
   application:
-    name: cloud-user-service
+    name: cloud-user-service123
   zipkin:
     base-url: http://localhost:9411/  # 链路追踪的服务器地址
   sleuth:
